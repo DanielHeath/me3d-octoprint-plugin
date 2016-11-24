@@ -15,7 +15,7 @@ class Me3DUiPlugin(octoprint.plugin.UiPlugin,
         return request.user_agent
 
     def get_assets(self):
-        return dict(js=[],
+        return dict(js=['js/jquery-3.1.1.js'],
                     css=['css/styles.css'],
                     less=[]
                     )
