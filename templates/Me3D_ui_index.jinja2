@@ -4,46 +4,45 @@
         {% include 'stylesheets.jinja2' %}
         {% include 'initscript.jinja2' %}
         {% include 'javascripts.jinja2' %}
-        
+
         <link rel="stylesheet" type="text/css" href="{{ url_for('plugin.Me3D.static', filename='css/styles.css') }}">
         <script src="{{ url_for('plugin.Me3D.static', filename='js/jquery-3.1.1.js') }}"></script>
         <script src="{{ url_for('plugin.Me3D.static', filename='js/custom.js') }}"></script>
-
-
-        <script>
-            $(document).ready(function(){
-                $("#test").click(function(){
-                    $("#test").hide();
-                });
-            });
-        </script>
         
     </head>
+
     <body>
+        <div id="topbar">
+        <h1>Hello</h1>
+        </div>
+        
+        <div id="container">
+            <div id="page1">
 
-        <h1>Me3D OctoPrint UI</h1>
+            </div>
 
-        <p>
-            Well hello there. Sadly, this is only a placeholder page.
-            Hope you are not too disappointed :)
-        </p>
+            <div id="page2">
+            </div>
 
-        <p>
-            Some data from the <code>render_kwargs</code> passed to this
-            template:
-        </p>
 
-        <ul>
-            <!--
-             We can include any render keywords arguments by their name,
-             using the regular Jinja templating functionality.
-             -->
-            <li>Version: {{ display_version }}</li>
-            <li>Debug: {{ debug }}</li>
-            <li>Template Count: {{ templates|length }}</li>
-            <li>Installed Plugins: {{ pluginNames|join(", ") }}</li>
-        </ul>
-        <button id="test">Test</button>
+            <div id="page3">
+            </div>
+
+
+            <div id="page4">
+            </div>
+
+
+            <div id="page5">
+            </div>
+        </div>
+
+
+        <div id="bottombar"> 
+        </div>
+
+        <button id="right">&gt;</button>
+        <button id="left">&lt;</button>
 
 
     </body>
