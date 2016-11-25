@@ -1,33 +1,34 @@
-var position = 0;
-var max = 400;
-var min = 0;
 
-// Button handling 
+function gotoSlide(id) {
+    if (!id) {
+        return;
+    }
+    if (id[0] == "#") {
+        id = id.slice(1, id.length)
+    }
+
+    if (!document.getElementById(id)) {
+        return; // not found!
+    }
+
+    location.hash = id
+    $(".current-page").removeClass("current-page")
+    document.getElementById(id).classList.add("current-page");
+}
+
+window.onhashchange = function() {
+    gotoSlide(location.hash)
+};
+
 $(document).ready(function(){
+    window.onhashchange()
+
+    // Button handling
     $("#left").click(function(){
-        if (position > min){
-            $("#container").animate({left:"+=100vw"});
-            position -= 100; 
-            $("#left").attr("disabled", true);
-            setTimeout(function(){ 
-                $("#left").attr("disabled", false);
-            }, 500);
-            evt.stopPropagation();
-            evt.preventDefault(); 
-        }
+        gotoSlide($(".current-page").prev().attr('id'))
     });
     $("#right").click(function(){
-        if (position < max){
-            $("#container").animate({left:"-=100vw"});
-            position += 100;
-            $("#left").attr("disabled", true);
-            setTimeout(function(){ 
-                $("#left").attr("disabled", false);
-            }, 500);
-            evt.stopPropagation();
-            evt.preventDefault();
-        }
+        gotoSlide($(".current-page").next().attr('id'))
     });
-    
 });
 

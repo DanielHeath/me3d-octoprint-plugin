@@ -1,9 +1,6 @@
 <html>
     <head>
         <title>Me3D OctoPrint UI</title>
-        {% include 'stylesheets.jinja2' %}
-        {% include 'initscript.jinja2' %}
-        {% include 'javascripts.jinja2' %}
 
         <link rel="stylesheet" type="text/css" href="{{ url_for('plugin.Me3D.static', filename='css/styles.css') }}">
         <script src="{{ url_for('plugin.Me3D.static', filename='js/jquery-3.1.1.js') }}"></script>
@@ -17,38 +14,38 @@
             <!-- Navbar -->
             {% include 'Me3D_ui_navbar.jinja2' %}
         </div>
-        
-        <div id="container">
-            <div id="page1" class="slide">
-                {% include 'page1.jinja2' %}
+
+        <div id="middle">
+            <button id="left" class="navigationalButton">&lt;</button>
+            <div id="container">
+                <div id="container-viewport">
+                    <div id="page1" class="slide current-page">
+                        {% include 'page1.jinja2' %}
+                    </div>
+
+                    <div id="page2" class="slide">
+                        {% include 'page2.jinja2' %}
+                    </div>
+
+                    <div id="page3" class="slide">
+                        {% include 'page3.jinja2' %}
+                    </div>
+
+                    <div id="page4" class="slide">
+                        {% include 'page4.jinja2' %}
+                    </div>
+
+                    <div id="page5" class="slide">
+                        {% include 'page5.jinja2' %}
+                    </div>
+                </div>
             </div>
-
-            <div id="page2" class="slide">
-                {% include 'page2.jinja2' %}
-            </div>
-
-
-            <div id="page3" class="slide">
-                {% include 'page3.jinja2' %}
-            </div>
-
-
-            <div id="page4" class="slide">
-                {% include 'page4.jinja2' %}
-            </div>
-
-
-            <div id="page5" class="slide">
-                {% include 'page5.jinja2' %}
-            </div>
+            <button id="right" class="navigationalButton">&gt;</button>
         </div>
 
-
-        <div id="bottombar"> 
+        <div id="bottombar">
         </div>
 
-        <button id="right" class="navigationalButton">&gt;</button>
-        <button id="left" class="navigationalButton">&lt;</button>
 
 
     </body>
