@@ -3,7 +3,6 @@ from __future__ import absolute_import
 
 import octoprint.plugin
 
-
 class Me3DUiPlugin(octoprint.plugin.UiPlugin,
                    octoprint.plugin.TemplatePlugin,
                    octoprint.plugin.AssetPlugin):
@@ -15,9 +14,10 @@ class Me3DUiPlugin(octoprint.plugin.UiPlugin,
         return request.user_agent
 
     def get_assets(self):
-        return dict(js=['js/jquery-3.1.1.js'],
+        return dict(js=['js/jquery-3.1.1.js', 'js/custom.js'],
                     css=['css/styles.css'],
-                    less=[]
+                    less=[],
+                    img=['img/Tools.svg', 'img/Logo.svg', 'img/dot.svg']
                     )
 
     def on_ui_render(self, now, request, render_kwargs):

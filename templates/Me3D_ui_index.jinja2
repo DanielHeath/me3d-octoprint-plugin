@@ -8,46 +8,38 @@
         <link rel="stylesheet" type="text/css" href="{{ url_for('plugin.Me3D.static', filename='css/styles.css') }}">
         <script src="{{ url_for('plugin.Me3D.static', filename='js/jquery-3.1.1.js') }}"></script>
         <script src="{{ url_for('plugin.Me3D.static', filename='js/custom.js') }}"></script>
-        
+
+
     </head>
 
     <body>
         <div id="topbar">
             <!-- Navbar -->
-            <ul class="navbar">
-                {% for key in templates.navbar.order %}
-                    {% set data = templates.navbar.entries[key] %}
-                    {% if "custom_bindings" not in data or data["custom_bindings"] %}<!-- ko allowBindings: false -->{% endif %}
-                    <li id="{{ data._div }}"
-                        {% if "data_bind" in data %}data-bind="{{ data.data_bind }}"{% endif %}
-                        {% if "classes" in data %}class="{{ data.classes|join(' ') }}"{% endif %}
-                        {% if "styles" in data %}style="{{ data.styles|join(', ') }}"{% endif %}
-                            >
-                        {% try "There was an error with the template {filename} at line number {lineno}: {exception}" %}{% include data.template ignore missing %}{% endtry %}
-                    </li>
-                    {% if "custom_bindings" not in data or data["custom_bindings"] %}<!-- /ko -->{% endif %}
-                {% endfor %}
-            </ul>
+            {% include 'Me3D_ui_navbar.jinja2' %}
         </div>
         
         <div id="container">
             <div id="page1" class="slide">
-
+                {% include 'page1.jinja2' %}
             </div>
 
             <div id="page2" class="slide">
+                {% include 'page2.jinja2' %}
             </div>
 
 
             <div id="page3" class="slide">
+                {% include 'page3.jinja2' %}
             </div>
 
 
             <div id="page4" class="slide">
+                {% include 'page4.jinja2' %}
             </div>
 
 
             <div id="page5" class="slide">
+                {% include 'page5.jinja2' %}
             </div>
         </div>
 
@@ -55,8 +47,8 @@
         <div id="bottombar"> 
         </div>
 
-        <button id="right">&gt;</button>
-        <button id="left">&lt;</button>
+        <button id="right" class="navigationalButton">&gt;</button>
+        <button id="left" class="navigationalButton">&lt;</button>
 
 
     </body>
